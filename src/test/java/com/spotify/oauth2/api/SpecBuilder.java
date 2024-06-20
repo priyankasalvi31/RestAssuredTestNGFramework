@@ -12,14 +12,16 @@ public class SpecBuilder {
 	public static RequestSpecification getRequestSpec()
 	{
 		return new RequestSpecBuilder().
-				setBaseUri("https://api.spotify.com").
+				setBaseUri(System.getProperty("BASE_URI")).
+			
 				setBasePath(Route.BASE_PATH).setContentType(ContentType.JSON).log(LogDetail.ALL).build();
 	}
 	
 	public static RequestSpecification getAccountRequestSpec()
 	{
 		return new RequestSpecBuilder().
-				setBaseUri("https://accounts.spotify.com").
+				setBaseUri(System.getProperty("ACCOUNT_BASE_URI")).
+				//setBaseUri("https://accounts.spotify.com").
 				setContentType(ContentType.URLENC).log(LogDetail.ALL).build();
 	}
 	
